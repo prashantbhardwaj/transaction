@@ -1,0 +1,78 @@
+= Transaction APIs
+Prashant Bhardwaj;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:snippets: ../../../build/generated-snippets
+:operation-http-request-title: Example request
+:operation-http-response-title: Example response
+
+[introduction]
+
+= Introduction
+Test application demonstrating Transaction APIs.
+
+`TransactionSystemApplicationTests` makes a call to a very simple service and produces three
+documentation snippets.
+
+[[transaction-add]]
+== Add Transaction
+
+include::{snippets}/add-transaction/http-request.adoc[]
+
+include::{snippets}/add-transaction/http-response.adoc[]
+
+[[transaction-get]]
+== Get Transaction by Id
+
+=== When Transaction doesn't exist
+
+include::{snippets}/get-transaction-by-id-when-none-present/http-request.adoc[]
+
+include::{snippets}/get-transaction-by-id-when-none-present/http-response.adoc[]
+
+=== When Transaction exists
+
+include::{snippets}/get-transaction-by-id-when-one-present/http-request.adoc[]
+
+include::{snippets}/get-transaction-by-id-when-one-present/http-response.adoc[]
+
+[[transactions-get]]
+== Get All Transactions
+
+=== When no transaction present
+One showing how to make a request using cURL:
+
+include::{snippets}/get-all-transactions-when-none-present/http-request.adoc[]
+
+include::{snippets}/get-all-transactions-when-none-present/http-response.adoc[]
+
+=== When a list of transactions returned
+
+include::{snippets}/get-all-transactions-when-one-present/http-request.adoc[]
+
+include::{snippets}/get-all-transactions-when-one-present/http-response.adoc[]
+
+[[transaction-update]]
+== Update Transaction
+
+include::{snippets}/update-transaction/http-request.adoc[]
+
+include::{snippets}/update-transaction/http-response.adoc[]
+
+[[transaction-delete]]
+== Delete Transaction By Id
+
+=== When given transaction doesn't present
+
+include::{snippets}/delete-transaction-when-not-present/http-request.adoc[]
+
+include::{snippets}/delete-transaction-when-not-present/http-response.adoc[]
+
+=== When given transaction is present
+
+include::{snippets}/delete-transaction-when-present/http-request.adoc[]
+
+include::{snippets}/delete-transaction-when-present/http-response.adoc[]
