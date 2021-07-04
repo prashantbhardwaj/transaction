@@ -6,6 +6,8 @@ import com.prashant.transactionsystem.repositories.AccountRepository;
 import com.prashant.transactionsystem.repositories.TransactionRepository;
 import com.prashant.transactionsystem.util.AccountCalculator;
 import com.prashant.transactionsystem.util.Constants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +16,7 @@ import java.util.UUID;
 
 @RestController
 public class TransactionController {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TransactionController.class);
 
     @Autowired
     private AccountCalculator accountCalculator;
@@ -36,8 +39,10 @@ public class TransactionController {
 
     @PostMapping("/transaction")
     public Transaction addTransaction(@RequestBody Transaction transaction){
+        LOGGER.info("Adding a new transaction - {}", transaction);
         Transaction updatedTransaction = transactionRepository.save(transaction);
         this.accountCalculator.handle(updatedTransaction);
+        LOGGER.info("Added a new transaction - {}", transaction);
         return updatedTransaction;
     }
 

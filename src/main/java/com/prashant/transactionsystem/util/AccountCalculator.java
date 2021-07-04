@@ -6,6 +6,7 @@ import com.prashant.transactionsystem.repositories.AccountRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,6 +16,7 @@ public class AccountCalculator {
     @Autowired
     private AccountRepository accountRepository;
 
+    @Async
     public void handle(Transaction transaction){
         LOGGER.info("Handelling transaction - {}", transaction);
         Account account = null;
