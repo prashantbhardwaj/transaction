@@ -1,4 +1,4 @@
-package com.prashant.transactionsystem;
+package com.prashant.transactionsystem.util;
 
 public class Constants {
     public static final String DELETED = "Record deleted successfully.";

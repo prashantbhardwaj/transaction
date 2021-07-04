@@ -1,4 +1,4 @@
-package com.prashant.transactionsystem;
+package com.prashant.transactionsystem.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -63,5 +63,17 @@ public class Transaction {
 
     public void setType(TransactionType type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "id=" + id +
+                ", accountId=" + accountId +
+                ", currency='" + currency + '\'' +
+                ", amount=" + amount +
+                ", description='" + description + '\'' +
+                ", type=" + type +
+                '}';
     }
 }

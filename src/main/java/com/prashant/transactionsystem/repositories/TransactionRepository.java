@@ -1,5 +1,6 @@
-package com.prashant.transactionsystem;
+package com.prashant.transactionsystem.repositories;
 
+import com.prashant.transactionsystem.model.Transaction;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import java.util.UUID;
 

@@ -1,4 +1,4 @@
-package com.prashant.transactionsystem;
+package com.prashant.transactionsystem.model;
 
 public enum TransactionType {
     DEBIT,

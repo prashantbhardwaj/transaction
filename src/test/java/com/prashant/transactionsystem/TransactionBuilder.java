@@ -1,5 +1,8 @@
 package com.prashant.transactionsystem;
 
+import com.prashant.transactionsystem.model.Transaction;
+import com.prashant.transactionsystem.model.TransactionType;
+
 import java.util.UUID;
 
 public class TransactionBuilder {

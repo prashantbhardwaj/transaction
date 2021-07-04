@@ -1,5 +1,11 @@
 package com.prashant.transactionsystem;
 
+import com.prashant.transactionsystem.model.Account;
+import com.prashant.transactionsystem.model.Transaction;
+import com.prashant.transactionsystem.repositories.AccountRepository;
+import com.prashant.transactionsystem.repositories.TransactionRepository;
+import com.prashant.transactionsystem.util.AccountCalculator;
+import com.prashant.transactionsystem.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +16,13 @@ import java.util.UUID;
 public class TransactionController {
 
     @Autowired
+    private AccountCalculator accountCalculator;
+
+    @Autowired
     private TransactionRepository transactionRepository;
+
+    @Autowired
+    private AccountRepository accountRepository;
 
     @GetMapping("/transactions")
     public Iterable<Transaction> getTransactions(){
@@ -24,7 +36,9 @@ public class TransactionController {
 
     @PostMapping("/transaction")
     public Transaction addTransaction(@RequestBody Transaction transaction){
-        return transactionRepository.save(transaction);
+        Transaction updatedTransaction = transactionRepository.save(transaction);
+        this.accountCalculator.handle(updatedTransaction);
+        return updatedTransaction;
     }
 
     @PutMapping("/transaction/{id}")
@@ -39,5 +53,10 @@ public class TransactionController {
         }
         transactionRepository.deleteById(id);
         return Constants.DELETED;
+    }
+
+    @GetMapping("/account/{id}")
+    public Optional<Account> getAccountDetails(@PathVariable UUID id){
+        return accountRepository.findById(id);
     }
 }
