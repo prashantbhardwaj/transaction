@@ -9,6 +9,8 @@ import com.prashant.transactionsystem.util.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -28,8 +30,8 @@ public class TransactionController {
     private AccountRepository accountRepository;
 
     @GetMapping("/transactions")
-    public Iterable<Transaction> getTransactions(){
-        return transactionRepository.findAll();
+    public Page<Transaction> getTransactions(Pageable pageable){
+        return transactionRepository.findAll(pageable);
     }
 
     @GetMapping("/transaction/{id}")
