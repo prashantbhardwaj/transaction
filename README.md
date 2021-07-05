@@ -1,7 +1,7 @@
 # Transaction APIs
 
 ## How to run the application 
-####(Application runs on 8081 by default)
+#### (Application runs on 8081 by default and uses H2 in-memory DB)
 
 ### In IntelliJ IDE
    <br>        Import project in your IDE and Run SpringBoot class TransactionSystemApplication
@@ -50,4 +50,4 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#fea
 
 https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing
 
-
+https://spring.io/guides/gs/spring-boot-docker/

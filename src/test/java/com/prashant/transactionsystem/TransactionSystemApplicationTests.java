@@ -121,6 +121,11 @@ class TransactionSystemApplicationTests {
 				.andExpect(status().isOk())
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
 				.andDo(document("{method-name}", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())));
+
+		this.mockMvc.perform(get("/transactions?page=0&size=1"))
+				.andExpect(status().isOk())
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+				.andDo(document("getAllWithPageNumberAndPageSize", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())));
 	}
 
 	@Test

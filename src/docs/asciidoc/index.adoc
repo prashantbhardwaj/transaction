@@ -55,6 +55,12 @@ include::{snippets}/get-all-transactions-when-one-present/http-request.adoc[]
 
 include::{snippets}/get-all-transactions-when-one-present/http-response.adoc[]
 
+=== When requested with page number and page size
+
+include::{snippets}/getAllWithPageNumberAndPageSize/http-request.adoc[]
+
+include::{snippets}/getAllWithPageNumberAndPageSize/http-response.adoc[]
+
 [[transaction-update]]
 == Update Transaction
 
