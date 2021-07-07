@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -75,5 +76,18 @@ public class Transaction {
                 ", description='" + description + '\'' +
                 ", type=" + type +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transaction that = (Transaction) o;
+        return id.equals(that.id) && accountId.equals(that.accountId) && currency.equals(that.currency) && amount.equals(that.amount) && Objects.equals(description, that.description) && type == that.type;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, accountId, currency, amount, description, type);
     }
 }
