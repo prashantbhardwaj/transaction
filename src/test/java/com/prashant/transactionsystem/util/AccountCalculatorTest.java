@@ -4,7 +4,6 @@ import com.prashant.transactionsystem.TransactionBuilder;
 import com.prashant.transactionsystem.model.Account;
 import com.prashant.transactionsystem.model.Transaction;
 import com.prashant.transactionsystem.repositories.AccountRepository;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -16,9 +15,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 public class AccountCalculatorTest {
@@ -28,11 +27,6 @@ public class AccountCalculatorTest {
 
     @InjectMocks
     private AccountCalculator subject;
-
-    //@BeforeEach
-    public void setUp(){
-        this.subject = new AccountCalculator();
-    }
 
     @Test
     public void testAmountIsAddedForCreditTransactionWhenAccountAlreadyExist(){
