@@ -18,7 +18,7 @@ public class AccountCalculator {
 
     @Async
     public void handle(Transaction transaction){
-        LOGGER.info("Handelling transaction - {}", transaction);
+        LOGGER.info("Calculating account balance for transaction - {}", transaction);
         Account account = null;
         if(accountRepository.existsById(transaction.getAccountId())){
             account = accountRepository.findById(transaction.getAccountId()).get();
@@ -27,5 +27,6 @@ public class AccountCalculator {
         }
         account.calculate(transaction);
         accountRepository.save(account);
+        LOGGER.info("Account balance calculated for Account {}", account);
     }
 }
